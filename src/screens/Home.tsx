@@ -9,13 +9,14 @@ import {
   useTheme,
   VStack,
 } from 'native-base'
+import { useNavigation } from '@react-navigation/native'
 import { ChatTeardropText, SignOut } from 'phosphor-react-native'
 
+import { Button } from '../components/Button'
 import { Filter } from '../components/Filter'
 import { Order, OrderProps } from '../components/Order'
 
 import Logo from '../assets/logo_secondary.svg'
-import { Button } from '../components/Button'
 
 export function Home() {
   const [statusSelected, setStatusSelected] = useState<'open' | 'closed'>(
@@ -23,7 +24,16 @@ export function Home() {
   )
   const [orders, setOrders] = useState<OrderProps[]>([])
 
+  const navigation = useNavigation()
   const { colors } = useTheme()
+
+  function handleNewOrder() {
+    navigation.navigate('new')
+  }
+
+  function handleOpenDetails(orderId: string) {
+    navigation.navigate('details', { orderId })
+  }
 
   return (
     <VStack flex={1} pb={6} bg="gray.700">
@@ -49,9 +59,9 @@ export function Home() {
           justifyContent="space-between"
           alignItems="center"
         >
-          <Heading color="gray.100">Meus chamados</Heading>
+          <Heading color="gray.100">Solicitações</Heading>
 
-          <Text color="gray.200">3</Text>
+          <Text color="gray.200">{orders.length}</Text>
         </HStack>
 
         <HStack space={3} mb={8}>
@@ -73,7 +83,9 @@ export function Home() {
         <FlatList
           data={orders}
           keyExtractor={(item) => item.id}
-          renderItem={({ item }) => <Order data={item} />}
+          renderItem={({ item }) => (
+            <Order data={item} onPress={() => handleOpenDetails(item.id)} />
+          )}
           showsVerticalScrollIndicator={false}
           contentContainerStyle={{ flexGrow: 1 }}
           ListEmptyComponent={() => (
@@ -87,7 +99,7 @@ export function Home() {
           )}
         />
 
-        <Button title="Nova solicitação" />
+        <Button title="Nova solicitação" onPress={handleNewOrder} />
       </VStack>
     </VStack>
   )
