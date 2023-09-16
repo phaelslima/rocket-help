@@ -32,8 +32,11 @@
       "endOfLine": "auto"
     }],
     "camelcase": "off",
+    "no-console":"off",
     "import/prefer-default-export": "off",
     "react/jsx-filename-extension": ["warn", { "extensions": [".tsx", ".ts"] }],
+    "react/jsx-no-bind": "off",
+    "react/jsx-props-no-spreading": "off",
     "react/react-in-jsx-scope": "off",
     "react/style-prop-object": "off",
     "no-use-before-define": "off",
@@ -47,7 +50,8 @@
         "ts": "never",
         "tsx": "never"
       }
-    ]
+    ],
+    "@typescript-eslint/no-var-requires": "off"
   },
   "settings": {
     "import/parsers": {
