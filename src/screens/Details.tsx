@@ -45,6 +45,31 @@ export function Details() {
 
   const { orderId } = route.params as RouteParams
 
+  function handleOrderClose() {
+    if (!solution) {
+      return Alert.alert(
+        'Solicitação',
+        'Informa a solução para encerrar a solicitação',
+      )
+    }
+
+    firestore()
+      .collection<OrderFirestoreDTO>('orders')
+      .doc(orderId)
+      .update({
+        status: 'closed',
+        solution,
+        closed_at: firestore.FieldValue.serverTimestamp(),
+      })
+      .then(() => {
+        Alert.alert('Solicitação', 'Solicitação encerrada.')
+        navigation.goBack()
+      })
+      .catch((error) => {
+        Alert.alert('Solicitação', 'Não foi possível encerrar a solicitação')
+      })
+  }
+
   useEffect(() => {
     firestore()
       .collection<OrderFirestoreDTO>('orders')
@@ -124,10 +149,22 @@ export function Details() {
           description={order.solution}
           icon={CircleWavyCheck}
           footer={order.closed && `Encerrado em ${order.closed}`}
-        />
+        >
+          {order.status === 'open' && (
+            <Input
+              placeholder="Descrição da solução"
+              onChangeText={setSolution}
+              textAlignVertical="top"
+              multiline
+              h={24}
+            />
+          )}
+        </CardDetails>
       </ScrollView>
 
-      {order.status === 'open' && <Button title="Encerrar solicitação" m={5} />}
+      {order.status === 'open' && (
+        <Button title="Encerrar solicitação" m={5} onPress={handleOrderClose} />
+      )}
     </VStack>
   )
 }
