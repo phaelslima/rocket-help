@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "rockethelp.app"
-               BlueprintName = "rockethelp"
-               ReferencedContainer = "container:rockethelp.xcodeproj">
+               BuildableName = "RocketHelp.app"
+               BlueprintName = "RocketHelp"
+               ReferencedContainer = "container:RocketHelp.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "rockethelpTests.xctest"
-               BlueprintName = "rockethelpTests"
-               ReferencedContainer = "container:rockethelp.xcodeproj">
+               BuildableName = "RocketHelpTests.xctest"
+               BlueprintName = "RocketHelpTests"
+               ReferencedContainer = "container:RocketHelp.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,9 +55,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "rockethelp.app"
-            BlueprintName = "rockethelp"
-            ReferencedContainer = "container:rockethelp.xcodeproj">
+            BuildableName = "RocketHelp.app"
+            BlueprintName = "RocketHelp"
+            ReferencedContainer = "container:RocketHelp.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -72,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "rockethelp.app"
-            BlueprintName = "rockethelp"
-            ReferencedContainer = "container:rockethelp.xcodeproj">
+            BuildableName = "RocketHelp.app"
+            BlueprintName = "RocketHelp"
+            ReferencedContainer = "container:RocketHelp.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
